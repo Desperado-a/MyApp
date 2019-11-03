@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="main_title">This is my app</string>
+    <string name="checkbook">My CheckBook</string>
+    <string name="college_news">College News</string>
+    <string name="jilu">Record</string>
+    <string name="jizhang">Add</string>
+    <string name="out">out</string>
+    <string name="in">in</string>
+    <string name="money">money</string>
+    <string name="title1">title1</string>
+    <string name="ok">Save</string>
+    <string name="nodata">No Data</string>
+    <string name="kind">kind</string>
+    <string name="detail">detail</string>
+    <string name="out_sum">out_sum</string>
+    <string name="in_sum">in_sum</string>
+    <string name="mess">message</string>
+    <string name="success">Success!</string>
+    <string name="write">Write Down</string>
+    <string name="date">Date</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+
+
+</resources>
