@@ -105,6 +105,17 @@ public class RecordFragment extends Fragment implements  AdapterView.OnItemClick
                         Listitems.remove(map);
                         Log.i("aaa","on long click id:"+map.get("id"));
                         int id= Integer.parseInt(map.get("id"));
+                        String kind= map.get("id").substring(0,2);
+                        String  money= map.get("id").substring(1);
+                        float m = Float.parseFloat(money);
+                        int k=0;
+                        if(kind.equals("支出")) {
+                            k=1;
+                        }
+                        else if(kind.equals("收入")){
+                            k=2;
+                        }
+
                         manager.delete(id);
                         Intent intent = new Intent(getContext(),FrameActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

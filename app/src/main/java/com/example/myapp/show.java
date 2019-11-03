@@ -48,6 +48,14 @@ public class show extends AppCompatActivity {
                 .setPositiveButton("删除", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
+                        float m = Float.parseFloat(mon);
+                        int k=0;
+                        if(kind.equals("支出")) {
+                            k=1;
+                        }
+                        else if(kind.equals("收入")){
+                            k=2;
+                        }
                         manager.delete(Integer.parseInt(id));
                         Intent intent = new Intent(show.this,FrameActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

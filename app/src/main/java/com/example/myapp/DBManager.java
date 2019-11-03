@@ -98,9 +98,15 @@ public class DBManager {
         float sum=0;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor =db.query(TBNAME,null,null,null,null,null,null);
+        int k;
+        float money=0,in=0;
         if(cursor!=null){
             while (cursor.moveToNext()) {
-                sum = cursor.getFloat(cursor.getColumnIndex("OUT_SUM"));
+                k = cursor.getInt(cursor.getColumnIndex("KIND"));
+                if(k==1){
+                    money = cursor.getFloat(cursor.getColumnIndex("MONEY"));
+                    sum+=money;
+                }
             }
             cursor.close();
         }
@@ -112,9 +118,15 @@ public class DBManager {
         float sum=0;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor =db.query(TBNAME,null,null,null,null,null,null);
+        int k;
+        float money;
         if(cursor!=null){
             while (cursor.moveToNext()) {
-                sum = cursor.getFloat(cursor.getColumnIndex("IN_SUM"));
+                k = cursor.getInt(cursor.getColumnIndex("KIND"));
+                if(k==2){
+                    money = cursor.getFloat(cursor.getColumnIndex("MONEY"));
+                    sum+=money;
+                }
             }
             cursor.close();
         }
@@ -124,7 +136,28 @@ public class DBManager {
 
     public void delete(int click_id) {
         SQLiteDatabase db=dbHelper.getWritableDatabase();
+       /* Cursor cursor =db.query(TBNAME,null,null,null,null,null,null);
+        int id=-1;
+        float out_sum=0,in_sum=0;
+        if(cursor!=null){
+            while (cursor.moveToNext()) {
+                id = cursor.getInt(cursor.getColumnIndex("ID"));
+                out_sum = cursor.getFloat(cursor.getColumnIndex("OUT_SUM"));
+                in_sum = cursor.getFloat(cursor.getColumnIndex("IN_SUM"));
+            }
+            cursor.close();
+        }
+        ContentValues values=new ContentValues();
+        if(kind==1){
+            float  n=out_sum - money;
+            values.put("out_sum",n);
+        }
+        else if (kind==2){
+            float  n=in_sum - money;
+            values.put("in_sum",n);
+        }*/
         db.delete(TBNAME,"ID=?",new String[] {String.valueOf(click_id)});
+        //db.update(TBNAME,values,"ID=?",new String[] {String.valueOf(id)});
         db.close();
     }
 }

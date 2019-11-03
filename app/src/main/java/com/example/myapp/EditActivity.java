@@ -22,6 +22,8 @@ import java.util.Date;
 
 public class EditActivity extends AppCompatActivity {
     private int id;
+    private int kk;
+    private Float mm;
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +44,15 @@ public class EditActivity extends AppCompatActivity {
         TextView detail =findViewById(R.id.add_detail_edit);
         radioGroup=findViewById(R.id.bottomKind_edit);
         money.setText(mon_show);
+        mm= Float.valueOf(mon_show);
         detail.setText(detail_show);
 
         if(kind_show.equals("支出")) {
+            kk=1;
             radioGroup.check(R.id.radio_out_edit);
         }
         else if(kind_show.equals("收入")){
+            kk=2;
             radioGroup.check(R.id.radio_in_edit);
         }
     }
